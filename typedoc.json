@@ -1,0 +1,13 @@
+{
+  "toc": [
+    "DesignModel",
+    "RealtimeProject",
+    "RealtimeSession",
+    "AsyncProject",
+    "AsyncEntry",
+    "Note",
+    "TimedNote"
+  ],
+  "out": "./docs",
+  "entryPoints": "./types.d.ts"
+}

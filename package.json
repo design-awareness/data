@@ -1,0 +1,23 @@
+{
+  "name": "design-awareness-data-types",
+  "version": "1.0.0",
+  "description": "Design Awareness data type specifications",
+  "types": "./types.d.ts",
+  "scripts": {
+    "build": "typedoc --disableSources",
+    "start": "typedoc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/design-awareness/data.git"
+  },
+  "author": "Design Awareness Contributors",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/design-awareness/data/issues"
+  },
+  "homepage": "https://github.com/design-awareness/data#readme",
+  "devDependencies": {
+    "typedoc": "^0.21.0"
+  }
+}
