@@ -261,7 +261,7 @@ interface AsyncActivityData {
    *
    * @default (empty)
    */
-  description?: string;
+  note?: string;
 }
 
 /**
@@ -281,7 +281,7 @@ export interface AsyncEntry extends Entity {
    *
    * @default (empty)
    */
-  description?: string;
+  note?: string;
 
   /**
    * Entry creation date
