@@ -14,7 +14,7 @@ This specification defines the following seven data types:
 - `AsyncEntry`
 - `AsyncProject`
 - `DesignModel`
-- `Note`
+- `ProjectNote`
 - `RealtimeProject`
 - `RealtimeSession`
 - `TimedNote`

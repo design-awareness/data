@@ -139,7 +139,7 @@ interface ProjectMetadata {
    *
    * @default `[]`
    */
-  notes?: Note[];
+  notes?: ProjectNote[];
 }
 
 /**
@@ -190,7 +190,7 @@ export interface RealtimeSession extends Entity {
    *
    * @default `[]`
    */
-  notes?: Note[];
+  notes?: ProjectNote[];
 }
 
 /**
@@ -275,11 +275,9 @@ export interface AsyncProject extends Entity, ProjectMetadata {
 }
 
 /**
- * A user-written note associated with a project.
- * @see {@link RealtimeProject}
- * @see {@link AsyncProject}
+ * Generic note interface for user-written notes
  */
-export interface Note extends Entity {
+interface GenericNote extends Entity {
   /**
    * Note content (plain text)
    */
@@ -294,10 +292,17 @@ export interface Note extends Entity {
 }
 
 /**
+ * A user-written note associated with a project.
+ * @see {@link RealtimeProject.notes}
+ * @see {@link AsyncProject.notes}
+ */
+export interface ProjectNote extends GenericNote {}
+
+/**
  * Represents a note associated with an exact moment in a
  * {@link RealtimeSession session} tracked in realtime.
  */
-export interface TimedNote extends Note {
+export interface TimedNote extends GenericNote {
   /**
    * The session-relative time, in milliseconds.
    */

@@ -5,7 +5,7 @@
     "RealtimeSession",
     "AsyncProject",
     "AsyncEntry",
-    "Note",
+    "ProjectNote",
     "TimedNote"
   ],
   "out": "./docs",
