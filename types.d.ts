@@ -277,6 +277,30 @@ export interface AsyncEntry extends Entity {
   data: AsyncActivityData[];
 
   /**
+   * Which time period this entry corresponds to.
+   *
+   * Time periods are timezone-agnostic and always represented using UTC.
+   * Implementers are strongly encouraged to normalize period values to the
+   * start of a day or week period. For example, an entry corresponding to
+   * June 20, 2021 should use the date `2021-06-20T00:00:00.000Z`.
+   *
+   * For week-based periods, use the day of the week indicated by the
+   * project's {@link AsyncProject.periodAlignment `periodAlignment`} to
+   * normalize this value. That is, the value should be the start of a day
+   * whose `getUTCDay()` is the same as the `periodAlignment`.
+   *
+   * For example, if `periodAlignment` is `1`, a period for the week starting
+   * with Monday, June 21, 2021 should be represented by the date
+   * `2021-06-21T00:00:00.000Z`
+   *
+   * If necessary, non-normalized date values should be interpreted by
+   * truncation. For example, a value of `2021-06-23T01:33:40.908Z` is
+   * interpreted as June 23, 2021. For week-based periods, if the weekday
+   * does not match `periodAlignment`, decrement the date until it does.
+   */
+  period: Date;
+
+  /**
    * Additional written description associated with the entry
    *
    * @default (empty)
@@ -298,6 +322,16 @@ export interface AsyncEntry extends Entity {
   modified?: Date;
 }
 
+declare enum Weekday {
+  SUNDAY = 0,
+  MONDAY = 1,
+  TUESDAY = 2,
+  WEDNESDAY = 3,
+  THURSDAY = 4,
+  FRIDAY = 5,
+  SATURDAY = 6,
+}
+
 /**
  * Represents a project with timing data logged retrospectively
  * (i.e., "asynchronously").
@@ -307,6 +341,16 @@ export interface AsyncProject extends Entity, ProjectMetadata {
    * Timescale of entry logging for this project.
    */
   reportingPeriod: "day" | "week";
+
+  /**
+   * Used for projects where the {@link reportingPeriod `reportingPeriod`}
+   * is `week` to determine which weekday is the "start" of the week.
+   *
+   * This property is ignored when `reportingPeriod` is `day`.
+   *
+   * @default `0` (Sunday)
+   */
+  periodAlignment?: Weekday;
 
   /**
    * Entries in the project, which contain activity time data.
