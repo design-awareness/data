@@ -57,6 +57,42 @@ interface Activity {
 }
 
 /**
+ * Detailed human-readable information about a design model.
+ */
+interface DesignModelDescription {
+  /**
+   * A long-form written description of the design model.
+   * Separate paragraphs with two newlines (`\n\n`).
+   */
+  description: string;
+
+  /**
+   * One or more URLs to use as image sources. Implementers may choose not to
+   * display images or to restrict valid image origins for security reasons.
+   *
+   * In the Design Awareness app, images will only be shown when online.
+   *
+   * @default (empty)
+   */
+  imageURL?: string | string[];
+
+  /**
+   * Plain-text written citations for images, description, or the design model
+   * itself.
+   *
+   * @default (empty)
+   */
+  citation?: string;
+
+  /**
+   * Link the user can follow to learn more about the design model.
+   *
+   * @default (empty)
+   */
+  moreInfoURL?: string;
+}
+
+/**
  * A design model for use in a project. Design models are a collection of
  * {@link Activity design activities} used for coding design processes.
  */
@@ -67,11 +103,15 @@ export interface DesignModel extends Entity {
   name: string;
 
   /**
-   * Human-readable description of the design model.
+   * Long-form description of the design model, optionally including images,
+   * citations, and/or a link to learn more.
+   *
+   * The Design Awareness app will only show descriptions for design models
+   * where {@link DesignModel.wellKnown wellKnown} is `true`.
    *
    * @default (empty)
    */
-  description?: string;
+  description?: DesignModelDescription | null;
 
   /**
    * The ordered list of {@link Activity activities} used in this design model.
