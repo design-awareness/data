@@ -346,7 +346,8 @@ export interface AsyncProject extends Entity, ProjectMetadata {
    * Used for projects where the {@link reportingPeriod `reportingPeriod`}
    * is `week` to determine which weekday is the "start" of the week.
    *
-   * This property is ignored when `reportingPeriod` is `day`.
+   * This property is not required when `reportingPeriod` is `day`, but it may
+   * still be useful to decide how to align weekly summaries in a UI or report.
    *
    * @default `0` (Sunday)
    */
