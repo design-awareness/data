@@ -2,10 +2,13 @@
   "name": "design-awareness-data-types",
   "version": "1.0.0",
   "description": "Design Awareness data type specifications",
+  "type": "module",
   "types": "./types.d.ts",
   "scripts": {
     "build": "typedoc --disableSources",
-    "start": "typedoc --watch"
+    "start": "typedoc --watch",
+    "build-schema-only": "node buildSchema.js . schema.json",
+    "postbuild": "node buildSchema.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +22,7 @@
   "homepage": "https://github.com/design-awareness/data#readme",
   "devDependencies": {
     "typedoc": "^0.21.0",
-    "typescript": "^4.3.4"
+    "typescript": "^4.3.4",
+    "typescript-json-schema": "^0.50.1"
   }
 }
