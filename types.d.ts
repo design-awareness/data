@@ -230,7 +230,7 @@ export interface RealtimeSession extends Entity {
    *
    * @default `[]`
    */
-  notes?: ProjectNote[];
+  notes?: TimedNote[];
 }
 
 /**
