@@ -1,6 +1,6 @@
 {
   "name": "design-awareness-data-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Design Awareness data type specifications",
   "type": "module",
   "types": "./types.d.ts",

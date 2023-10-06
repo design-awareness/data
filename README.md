@@ -3,7 +3,7 @@
 This repository contains specifications for the data formats supported by the
 [Design Awareness app](https://github.com/design-awareness/design-awareness-app).
 
-**Latest version:** `1.0.0`
+**Latest version:** `1.0.1`
 
 These data formats may be useful to build tools compatible with the
 Design Awareness app, or for other general interchange of design process
@@ -28,7 +28,7 @@ Data should be encoded using JSON, and wrapped as follows:
 ```
 {
   "$format": "design-awareness",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "<TYPE>",
   "data": ...
 }
@@ -48,7 +48,7 @@ a `meta` property for any additional data if needed. For example:
 ```
 {
   "$format": "design-awareness",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "RealtimeProject",
   "data": ...,
   "meta": {
