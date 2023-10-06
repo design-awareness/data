@@ -226,7 +226,7 @@ export interface RealtimeSession extends Entity {
   data: RealtimeActivityRecord[];
 
   /**
-   * The notes on this project.
+   * The notes on this session.
    *
    * @default `[]`
    */
